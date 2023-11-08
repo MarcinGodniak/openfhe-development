@@ -56,6 +56,7 @@ template NativeInteger GreatestCommonDivisor(const NativeInteger& a, const Nativ
 template bool MillerRabinPrimalityTest(const NativeInteger& p, const usint niter);
 template const NativeInteger PollardRhoFactorization(const NativeInteger& n);
 template void PrimeFactorize(NativeInteger n, std::set<NativeInteger>& primeFactors);
+template NativeInteger GetMaxPrime(uint64_t nBits, uint64_t m);
 template NativeInteger FirstPrime(uint64_t nBits, uint64_t m);
 template NativeInteger NextPrime(const NativeInteger& q, uint64_t cyclotomicOrder);
 template NativeInteger PreviousPrime(const NativeInteger& q, uint64_t cyclotomicOrder);

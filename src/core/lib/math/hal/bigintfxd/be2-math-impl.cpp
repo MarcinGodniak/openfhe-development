@@ -57,6 +57,7 @@ template M2Integer GreatestCommonDivisor(const M2Integer& a, const M2Integer& b)
 template bool MillerRabinPrimalityTest(const M2Integer& p, const usint niter);
 template const M2Integer PollardRhoFactorization(const M2Integer& n);
 template void PrimeFactorize(M2Integer n, std::set<M2Integer>& primeFactors);
+template M2Integer GetMaxPrime(uint64_t nBits, uint64_t m);
 template M2Integer FirstPrime(uint64_t nBits, uint64_t m);
 template M2Integer NextPrime(const M2Integer& q, uint64_t cyclotomicOrder);
 template M2Integer PreviousPrime(const M2Integer& q, uint64_t cyclotomicOrder);
