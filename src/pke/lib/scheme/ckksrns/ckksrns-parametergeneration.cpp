@@ -206,9 +206,13 @@ bool ParameterGenerationCKKSRNS::ParamsGenCKKSRNS(std::shared_ptr<CryptoParamete
     rootsQ[0] = RootOfUnity(cyclOrder, moduliQ[0]);
 
     if (scalTech == FLEXIBLEAUTOEXT) {
-        // no need for extra checking as extraModSize is automatically chosen by the library
-        moduliQ[numPrimes] = FirstPrime<NativeInteger>(extraModSize - 1, cyclOrder);
-        rootsQ[numPrimes]  = RootOfUnity(cyclOrder, moduliQ[numPrimes]);
+        if (extraModSize == dcrtBits || extraModSize == firstModSize) {
+            moduliQ[numPrimes] = PreviousPrime<NativeInteger>(moduliQ[0], cyclOrder);
+        }
+        else {
+            moduliQ[numPrimes] = LastPrime<NativeInteger>(extraModSize, cyclOrder);
+        }
+        rootsQ[numPrimes] = RootOfUnity(cyclOrder, moduliQ[numPrimes]);
     }
 
     auto paramsDCRT = std::make_shared<ILDCRTParams<BigInteger>>(cyclOrder, moduliQ, rootsQ);
